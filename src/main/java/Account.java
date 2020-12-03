@@ -1,14 +1,11 @@
 public class Account {
 
+    private final Money money = new Money();
     private String iban;
 
     private AccountType type;
 
     private int daysOverdrawn;
-
-    private double money;
-
-    private String currency;
 
     public Account(AccountType type, int daysOverdrawn) {
         super();
@@ -47,12 +44,12 @@ public class Account {
     }
 
     String getMoneyAccountDescription(){
-        return "Account: IBAN: " + getIban() + ", Money: " + getMoney();
+        return "Account: IBAN: " + getIban() + ", Money: " + money.getMoney();
     }
 
     String getAccountDescription(){
         return "Account: IBAN: " + getIban() + ", Money: "
-                + getMoney() + ", Account type: " + getType();
+                + money.getMoney() + ", Account type: " + getType();
     }
 
     public int getDaysOverdrawn() {
@@ -68,11 +65,11 @@ public class Account {
     }
 
     public void setMoney(double money) {
-        this.money = money;
+        this.money.setMoney(money);
     }
 
     public double getMoney() {
-        return money;
+        return money.getMoney();
     }
 
     public AccountType getType() {
@@ -80,10 +77,13 @@ public class Account {
     }
 
     public String getCurrency() {
-        return currency;
+        return money.getCurrency();
     }
 
     public void setCurrency(String currency) {
-        this.currency = currency;
+        money.setCurrency(currency);
     }
+
+    public void subtractMoney(String currency, double sum){
+        money.subtractMony(currency, sum);}
 }

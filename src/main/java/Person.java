@@ -5,14 +5,12 @@ public class Person extends Customer{
     }
 
     public void withdraw(double sum, String currency) {
-        if (!getAccount().getCurrency().equals(currency)) {
-            throw new RuntimeException("Can't extract withdraw " + currency);
-        }
         if (getAccount().getMoney() < 0) {
-            getAccount().setMoney((getAccount().getMoney() - sum) - sum * getAccount().overdraftFee());
+            getAccount().subtractMoney(currency, sum + sum * getAccount().overdraftFee());
         } else {
-            getAccount().setMoney(getAccount().getMoney() - sum);
+            getAccount().subtractMoney(currency, sum);
         }
     }
+
 }
 
