@@ -10,8 +10,6 @@ public class Account {
 
     private String currency;
 
-    private Customer customer;
-
     public Account(AccountType type, int daysOverdrawn) {
         super();
         this.type = type;
@@ -77,20 +75,8 @@ public class Account {
         return money;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public AccountType getType() {
         return type;
-    }
-
-    public String printCustomer() {
-        return customer.getName() + " " + customer.getEmail();
     }
 
     public String getCurrency() {

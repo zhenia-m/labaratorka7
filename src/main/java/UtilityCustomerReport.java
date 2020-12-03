@@ -13,11 +13,16 @@ public class UtilityCustomerReport {
         return fullName + accountDescription;
     }
 
+
     public static String printCustomerAccount(Customer customer) {
         return customer.getAccount().getAccountDescription();
     }
 
     static String getFullName(Customer customer) {
         return customer.getName() + " " + customer.getSurname() + " ";
+    }
+
+    public static String printCustomer(Customer customer) {
+        return customer.getName() + " " + customer.getEmail();
     }
 }

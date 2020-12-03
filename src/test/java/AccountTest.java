@@ -33,8 +33,7 @@ public class AccountTest {
     public void testPrintCustomer() {
         Account account = getNormalAccount();
         Customer customer = CustomerFactory.createPerson("xxx", "xxx", "xxx@mail.com", account);
-        account.setCustomer(customer);
-        assertThat(account.printCustomer(), is("xxx xxx@mail.com"));
+        assertThat(UtilityCustomerReport.printCustomer(customer), is("xxx xxx@mail.com"));
     }
 
     private Account getNormalAccount() {
