@@ -2,20 +2,19 @@ public class UtilityCustomerReport {
 
     public static String printCustomerDaysOverdrawn(Customer customer) {
         String fullName = getFullName(customer);
-        String accountDescription = "Account: IBAN: " + customer.getAccount().getIban() + ", Days Overdrawn: " + customer.getAccount().getDaysOverdrawn();
+        String accountDescription = customer.getAccount().getDaysOverdrawnAccountDescription();
         return fullName + accountDescription;
     }
 
     public static String printCustomerMoney(Customer customer) {
         String fullName = getFullName(customer);
         String accountDescription = "";
-        accountDescription += "Account: IBAN: " + customer.getAccount().getIban() + ", Money: " + customer.getAccount().getMoney();
+        accountDescription += customer.getAccount().getMoneyAccountDescription();
         return fullName + accountDescription;
     }
 
     public static String printCustomerAccount(Customer customer) {
-        return "Account: IBAN: " + customer.getAccount().getIban() + ", Money: "
-                + customer.getAccount().getMoney() + ", Account type: " + customer.getAccount().getType();
+        return customer.getAccount().getAccountDescription();
     }
 
     static String getFullName(Customer customer) {
