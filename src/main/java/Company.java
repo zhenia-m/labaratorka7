@@ -10,7 +10,7 @@ public class Company extends Customer{
         }
 
         int Divider = 1;
-        if (getAccount().getType().isPremium()) {
+        if (getAccount().isPremium()) {
             Divider = 2;
         }
 
