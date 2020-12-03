@@ -8,21 +8,10 @@ public class Person extends Customer{
         if (!getAccount().getCurrency().equals(currency)) {
             throw new RuntimeException("Can't extract withdraw " + currency);
         }
-
-        if (getAccount().getType().isPremium()) {
-            // we are in overdraft
-            if (getAccount().getMoney() < 0) {
-                getAccount().setMoney((getAccount().getMoney() - sum) - sum * getAccount().overdraftFee());
-            } else {
-                getAccount().setMoney(getAccount().getMoney() - sum);
-            }
+        if (getAccount().getMoney() < 0) {
+            getAccount().setMoney((getAccount().getMoney() - sum) - sum * getAccount().overdraftFee());
         } else {
-            // we are in overdraft
-            if (getAccount().getMoney() < 0) {
-                getAccount().setMoney((getAccount().getMoney() - sum) - sum * getAccount().overdraftFee());
-            } else {
-                getAccount().setMoney(getAccount().getMoney() - sum);
-            }
+            getAccount().setMoney(getAccount().getMoney() - sum);
         }
     }
 }
