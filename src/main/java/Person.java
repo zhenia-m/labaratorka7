@@ -5,7 +5,7 @@ public class Person extends Customer{
     }
 
     public void withdraw(double sum, String currency) {
-        if (getAccount().getMoney() < 0) {
+        if (getAccount().isOverdraft()) {
             getAccount().subtractMoney(currency, sum + sum * getAccount().overdraftFee());
         } else {
             getAccount().subtractMoney(currency, sum);

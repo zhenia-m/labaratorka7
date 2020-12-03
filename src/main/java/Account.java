@@ -52,6 +52,10 @@ public class Account {
                 + money.getMoney() + ", Account type: " + getType();
     }
 
+    public boolean isOverdraft() {
+        return money.getMoney() < 0;
+    }
+
     public int getDaysOverdrawn() {
         return daysOverdrawn;
     }

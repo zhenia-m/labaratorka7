@@ -13,14 +13,12 @@ public class Company extends Customer{
         if (getAccount().getType().isPremium()) {
             Divider = 2;
         }
-        // we are in overdraft
-        if (getAccount().getMoney() < 0) {
-            // 50 percent discount for overdraft for premium account
+
+        if (getAccount().isOverdraft()) {
             getAccount().subtractMoney(currency, sum + sum * getAccount().overdraftFee() * getCompanyOverdraftDiscount() / Divider);
         } else {
             getAccount().subtractMoney(currency, sum);
         }
-
     }
 }
 
